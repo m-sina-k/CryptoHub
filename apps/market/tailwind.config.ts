@@ -1,6 +1,6 @@
 import { Config } from "tailwindcss"
 
-import sharedConfig from "@repo/ui/tailwind.config"
+import sharedConfig from "@cryptohub/ui/tailwind.config"
 
 const config = {
   presets: [sharedConfig],

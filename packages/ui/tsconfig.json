@@ -1,5 +1,5 @@
 {
-  "extends": "@repo/typescript-config/react-library.json",
+  "extends": "@cryptohub/typescript-config/react-library.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
