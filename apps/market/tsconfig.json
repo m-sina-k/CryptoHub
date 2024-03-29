@@ -1,6 +1,12 @@
 {
   "extends": "@cryptohub/typescript-config/nextjs.json",
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/components/*": ["components/*"],
+      "@ui/*": ["../../packages/ui/src/*"],
+      "@ui/components": ["../../packages/ui/src/index.tsx"]
+    },
     "plugins": [
       {
         "name": "next"

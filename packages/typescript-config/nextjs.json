@@ -9,9 +9,9 @@
     "allowJs": true,
     "jsx": "preserve",
     "noEmit": true,
-    "paths": {
-      "@ui/*": ["../../packages/ui/src/*"],
-      "@ui/components": ["../../packages/ui/src/index.tsx"]
-    }
+//    "paths": {
+//      "@ui/*": ["../../packages/ui/src/*"],
+//      "@ui/components": ["../../packages/ui/src/index.tsx"]
+//    }
   }
 }

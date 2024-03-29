@@ -1,5 +1,5 @@
-import type { Config } from "tailwindcss"
 import tailwindcssAnimate from "tailwindcss-animate"
+import {createThemes} from "tw-colors"
 
 const config = {
   darkMode: ["class"],
@@ -14,14 +14,19 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1rem",
       screens: {
         "2xl": "1400px",
       },
     },
     extend: {
+      borderWidth: {
+        1: "1px",
+      },
+      fontFamily: {
+        blink: ["var(--font-BlinkMacSystemFont)"],
+      },
       colors: {
-        globalColor: "red",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -55,6 +60,17 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        brand: "#1119fa",
+        green: "#00a68c",
+        red: '#d9475a',
+        yellow: '#FFC312',
+        twc_background: "hsl(var(--twc-background))",
+        twc_foreground: "hsl(var(--twc-foreground))",
+        twc_primary: "hsl(var(--twc-primary))",
+        twc_secondary: "hsl(var(--twc-secondary))",
+        twc_muted: "hsl(var(--twc-muted))",
+        twc_border: "hsl(var(--twc-border))",
+        twc_accent: "hsl(var(--twc-accent))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -63,12 +79,12 @@ const config = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+          from: {height: "0"},
+          to: {height: "var(--radix-accordion-content-height)"},
         },
         "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+          from: {height: "var(--radix-accordion-content-height)"},
+          to: {height: "0"},
         },
       },
       animation: {
@@ -77,7 +93,34 @@ const config = {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
-} satisfies Config
+  plugins: [
+    tailwindcssAnimate,
+    createThemes(
+      {
+        light: {
+          foreground: "#ffffff",
+          background: "#F5F6F9",
+          secondary: "#323c52",
+          primary: "#0b1426",
+          muted: "#5d667b",
+          border: "#C9CFDD",
+          accent: "#ffffff",
+        },
+        dark: {
+          foreground: "#12192b",
+          background: "#0B1426",
+          secondary: "#c9cfdd",
+          primary: "#ffffff",
+          border: "#373e4d",
+          muted: "#a0a9be",
+          accent: "#122036",
+        },
+      },
+      {
+        produceCssVariable: (colorName: string) => `--twc-${colorName}`,
+      },
+    ),
+  ],
+}
 
 export default config
