@@ -3,15 +3,22 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~/components/*": ["components/*"],
-      "@ui/*": ["../../packages/ui/src/*"],
-      "@ui/components": ["../../packages/ui/src/index.tsx"]
+      "~/*": [
+        "./*"
+      ],
+      "@ui/*": [
+        "../../packages/ui/src/*"
+      ],
+      "@ui/components": [
+        "../../packages/ui/src/index.tsx"
+      ]
     },
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "noPropertyAccessFromIndexSignature": false
   },
   "include": [
     "next-env.d.ts",
@@ -21,5 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

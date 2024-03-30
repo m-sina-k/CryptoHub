@@ -1,13 +1,13 @@
-import Header from "~/components/layout/header/Header";
+import Header from "~/components/layout/header/Header"
 
 export default function PricesLayout({
-                                       children,
-                                     }: {
+  children,
+}: {
   children: React.ReactNode
 }): JSX.Element {
   return (
     <>
-      <Header/>
+      <Header />
       <div>{children}</div>
     </>
   )
