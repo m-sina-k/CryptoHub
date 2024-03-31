@@ -1,5 +1,7 @@
 import "@cryptohub/ui/globals.css"
 import "~/styles/styles.css"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 import type { Metadata } from "next"
 import localFont from "next/font/local"

@@ -87,4 +87,6 @@ export interface CoinsParams {
   minVolume: number
 }
 
-export type GetAllCoinsResponse = { data: { stats: Stats; coins: Coin[] } }
+export type GetCoinsResponse = {
+  data: { stats: Stats; data: { coins: Coin[] } }
+}

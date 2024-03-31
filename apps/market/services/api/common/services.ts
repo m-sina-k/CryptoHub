@@ -1,7 +1,7 @@
 import { http } from "~/services/core/http"
 import {
   type CoinsParams,
-  type GetAllCoinsResponse,
+  type GetCoinsResponse,
   type StatParams,
 } from "~/types"
 
@@ -9,12 +9,12 @@ import { commonRoutes } from "./routes"
 
 export const getGlobalStats = (
   params?: Partial<StatParams>,
-): Promise<GetAllCoinsResponse> => {
+): Promise<GetCoinsResponse> => {
   return http.get(commonRoutes.stats, { params })
 }
 
-export const getAllCoins = (
+export const getCoins = (
   params?: Partial<CoinsParams>,
-): Promise<GetAllCoinsResponse> => {
-  return http.get(commonRoutes.allCoins, { params })
+): Promise<GetCoinsResponse> => {
+  return http.get(commonRoutes.coins, { params })
 }

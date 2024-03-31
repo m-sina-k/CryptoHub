@@ -23,6 +23,9 @@ const config = {
       borderWidth: {
         1: "1px",
       },
+      fontSize: {
+        heading: "24px",
+      },
       fontFamily: {
         blink: ["var(--font-BlinkMacSystemFont)"],
       },
@@ -107,8 +110,8 @@ const config = {
           accent: "#ffffff",
         },
         dark: {
-          foreground: "#12192b",
-          background: "#0B1426",
+          foreground: "#0B1426",
+          background: "#12192b",
           secondary: "#c9cfdd",
           primary: "#ffffff",
           border: "#373e4d",
@@ -117,7 +120,7 @@ const config = {
         },
       },
       {
-        produceCssVariable: (colorName: string) => `--twc-${colorName}`,
+        produceCssVariable: (colorName) => `--twc-${colorName}`,
       },
     ),
   ],

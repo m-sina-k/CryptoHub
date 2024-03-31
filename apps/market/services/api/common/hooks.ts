@@ -1,8 +1,8 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query"
-import { getAllCoins, getGlobalStats } from "~/services/api/common/services"
+import { getCoins, getGlobalStats } from "~/services/api/common/services"
 import {
   type CoinsParams,
-  type GetAllCoinsResponse,
+  type GetCoinsResponse,
   type GlobalStatsResponse,
   type StatParams,
 } from "~/types"
@@ -16,11 +16,11 @@ export const useGetGlobalStats = (
   })
 }
 
-export const useGetAllCoins = (
+export const useGetCoins = (
   params?: Partial<CoinsParams>,
-): UseQueryResult<GetAllCoinsResponse, Error> => {
+): UseQueryResult<GetCoinsResponse, Error> => {
   return useQuery({
     queryKey: ["all-coins", params],
-    queryFn: () => getAllCoins(params),
+    queryFn: () => getCoins(params),
   })
 }
