@@ -10,7 +10,6 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "ui:add": "pnpm --filter @cryptohub/ui ui:add",
     "prepare": "husky",
-    "ui:add": "pnpm --filter @cryptohub/ui ui:add",
     "run:market": "pnpm --filter market run dev",
     "i:market": "pnpm --filter market install"
   },

@@ -1,4 +1,5 @@
 import Header from "~/components/layout/header/Header"
+import Stats from "~/components/layout/stats/Stats"
 
 export default function PricesLayout({
   children,
@@ -8,6 +9,7 @@ export default function PricesLayout({
   return (
     <>
       <Header />
+      <Stats />
       <div>{children}</div>
     </>
   )

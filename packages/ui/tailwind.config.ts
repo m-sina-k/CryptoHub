@@ -1,5 +1,5 @@
 import tailwindcssAnimate from "tailwindcss-animate"
-import {createThemes} from "tw-colors"
+import { createThemes } from "tw-colors"
 
 const config = {
   darkMode: ["class"],
@@ -62,8 +62,8 @@ const config = {
         },
         brand: "#1119fa",
         green: "#00a68c",
-        red: '#d9475a',
-        yellow: '#FFC312',
+        red: "#d9475a",
+        yellow: "#FFC312",
         twc_background: "hsl(var(--twc-background))",
         twc_foreground: "hsl(var(--twc-foreground))",
         twc_primary: "hsl(var(--twc-primary))",
@@ -79,12 +79,12 @@ const config = {
       },
       keyframes: {
         "accordion-down": {
-          from: {height: "0"},
-          to: {height: "var(--radix-accordion-content-height)"},
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {height: "var(--radix-accordion-content-height)"},
-          to: {height: "0"},
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {

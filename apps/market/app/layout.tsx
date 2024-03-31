@@ -1,4 +1,5 @@
 import "@cryptohub/ui/globals.css"
+import "~/styles/styles.css"
 
 import type { Metadata } from "next"
 import localFont from "next/font/local"
