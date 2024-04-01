@@ -60,12 +60,12 @@ export interface Coin {
   tier: number
   change: string
   rank: number
-  sparkline: string[]
+  sparkline: (string | null)[]
   lowVolume: boolean
   coinrankingUrl: string
   "24hVolume": string
   btcPrice: string
-  contractAddresses: []
+  contractAddresses: string[]
 }
 
 export interface CoinsParams {

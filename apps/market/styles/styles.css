@@ -1,3 +1,21 @@
-body{
+body {
   @apply bg-twc_background
+}
+
+
+/*----------------  slick slider styles  ----------------*/
+.slick-list, .slick-track {
+  display: flex !important;
+}
+
+.slick-slide, .slick-slide > div {
+  height: 100% !important;
+}
+
+.top-movers .slick-list {
+  margin: 0 -7px;
+
+  & .slick-slide > div {
+    padding: 0 10px;
+  }
 }

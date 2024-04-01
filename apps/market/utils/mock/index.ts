@@ -1,3 +1,5 @@
+import { Coin } from "~/types"
+
 export const globalStats = {
   referenceCurrencyRate: 1,
   totalCoins: 36681,
@@ -57,7 +59,7 @@ export const globalStats = {
   ],
 }
 
-export const coins = [
+export const coins: Coin[] = [
   {
     uuid: "Qwsogvtv82FCd",
     symbol: "BTC",

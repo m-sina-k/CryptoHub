@@ -1,7 +1,8 @@
 "use client"
 
 import Image from "next/image"
-import { useGetCoins } from "~/services/api/common/hooks"
+// import { useGetCoins } from "~/services/api/common/hooks"
+import { coins } from "~/utils/mock"
 import Slider from "react-slick"
 
 function PopularTokens() {
@@ -15,25 +16,25 @@ function PopularTokens() {
     autoplaySpeed: 4000,
   }
 
-  const {
-    data: popularTokens,
-    isLoading,
-    isError,
-  } = useGetCoins({
-    timePeriod: "1h",
-    orderBy: "change",
-    limit: 14,
-  })
+  // const {
+  //   data: popularTokens,
+  //   isLoading,
+  //   isError,
+  // } = useGetCoins({
+  //   timePeriod: "1h",
+  //   orderBy: "change",
+  //   limit: 14,
+  // })
 
-  if (isLoading) return <p>Loading...</p>
-  if (isError) return <p>an error occurred!</p>
+  // if (isLoading) return <p>Loading...</p>
+  // if (isError) return <p>an error occurred!</p>
 
   return (
     <div>
       <h2 className="text-heading capitalize">what others are trading</h2>
       <div className="mt-5">
         <Slider {...settings}>
-          {popularTokens?.data?.data?.coins.map((token) => (
+          {coins.map((token) => (
             <div key={token.uuid} className="bg-twc_accent py-2">
               <div className="border-r-1 border-r-twc_border flex items-center justify-center gap-3 px-2">
                 <Image
