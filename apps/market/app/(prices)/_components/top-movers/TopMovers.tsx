@@ -2,9 +2,8 @@
 
 import React from "react"
 import TokenCard from "~/app/(prices)/_components/top-movers/TokenCard"
-import { useGetCoins } from "~/services/api/common/hooks"
+import CustomTooltip from "~/components/common/CustomTooltip"
 import { coins } from "~/utils/mock"
-import shuffleArray from "lodash.shuffle"
 import Slider from "react-slick"
 
 function TopMovers() {
@@ -51,7 +50,15 @@ function TopMovers() {
 
   return (
     <div className="top-movers mt-14">
-      <h2 className="text-heading capitalize">top movers</h2>
+      <div className="item-center flex gap-2">
+        <h2 className="text-heading capitalize">top movers</h2>
+        <CustomTooltip
+          text={
+            "Top movers are the tokens with the largest price movements (increases and decreases) over the past 24 hour"
+          }
+          side={"right"}
+        />
+      </div>
       <div className="mt-5">
         <Slider {...settings}>
           {topMovers.map((token) => (

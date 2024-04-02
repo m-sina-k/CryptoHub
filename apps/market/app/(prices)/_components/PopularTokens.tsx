@@ -32,6 +32,7 @@ function PopularTokens() {
   return (
     <div>
       <h2 className="text-heading capitalize">what others are trading</h2>
+
       <div className="mt-5">
         <Slider {...settings}>
           {coins.map((token) => (
