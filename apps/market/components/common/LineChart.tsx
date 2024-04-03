@@ -6,12 +6,12 @@ interface LineChartProps {
   chartData: {
     id: string
     chartColor: "green" | "red"
-    data: string[]
+    data: (string | null)[]
   }
 }
 
 function LineChart({ chartData }: LineChartProps) {
-  const convertData = (data: string[]) => {
+  const convertData = (data: (string | null)[]) => {
     return data.map((item, index) => ({
       x: ++index,
       y: item,

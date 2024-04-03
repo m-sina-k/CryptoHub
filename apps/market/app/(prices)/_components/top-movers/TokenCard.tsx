@@ -31,7 +31,7 @@ function TokenCard({ token }: TokenCardProps) {
             chartData={{
               id: token.name,
               chartColor: isChangeNegative ? "red" : "green",
-              data: token.sparkline as string[],
+              data: token.sparkline,
             }}
           />
         </section>
