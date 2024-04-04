@@ -13,7 +13,7 @@ function PriceTable() {
     <div className="mt-14">
       <h2 className="text-heading capitalize">Today's cryptocurrency prices</h2>
       <div className="mt-5">
-        <CustomTable data={tableData} columns={columns} />
+        <CustomTable data={tableData} columns={columns} enableSorting />
       </div>
     </div>
   )

@@ -10,27 +10,32 @@ import { formatLargeNumber } from "~/utils/helpers"
 function usePriceTableColumns() {
   const columnHelper = createColumnHelper<Coin>()
 
-  const defaultHeaderStyles = "flex items-center justify-end gap-1"
+  const defaultHeaderStyles = "flex items-center justify-end gap-2"
   const defaultCellStyles = "flex justify-end"
 
   const columns = [
     columnHelper.accessor("rank", {
       header: () => (
-        <span className={cn(defaultHeaderStyles, "justify-start")}>
+        <span className={defaultHeaderStyles}>
           #
           <CustomTooltip
             text={"Rank is the position of a cryptocurrency by Market Cap."}
           />
         </span>
       ),
-      cell: (cell) => cell.getValue(),
+      cell: (cell) => (
+        <p className={cn(defaultHeaderStyles, "justify-center")}>
+          {cell.getValue()}
+        </p>
+      ),
     }),
     columnHelper.accessor("name", {
       cell: (cell) => (
-        <div className={cn(defaultHeaderStyles, "justify-start")}>
+        <div className={"flex items-center gap-2"}>
           <Image
             width={24}
             height={24}
+            className="h-6 w-6"
             src={cell.row.original.iconUrl}
             alt={cell.row.original.symbol}
           />
@@ -40,11 +45,14 @@ function usePriceTableColumns() {
           </section>
         </div>
       ),
-      header: "name",
+      header: () => (
+        <span className={cn(defaultHeaderStyles, "justify-start")}>name</span>
+      ),
+      enableSorting: false,
     }),
     columnHelper.accessor("price", {
       header: () => (
-        <span className={cn(defaultHeaderStyles)}>
+        <span className={defaultHeaderStyles}>
           price
           <CustomTooltip
             text={
@@ -54,7 +62,7 @@ function usePriceTableColumns() {
         </span>
       ),
       cell: (cell) => (
-        <p className={cn(defaultCellStyles)}>
+        <p className={defaultCellStyles}>
           ${parseInt(cell.getValue().split(".")[0] as string).toLocaleString()}.
           {parseInt(cell.getValue().split(".")[1] as string)
             .toString()
@@ -64,7 +72,7 @@ function usePriceTableColumns() {
     }),
     columnHelper.accessor("change", {
       header: () => (
-        <span className={cn(defaultHeaderStyles)}>
+        <span className={defaultHeaderStyles}>
           24h change
           <CustomTooltip
             text={
@@ -90,7 +98,7 @@ function usePriceTableColumns() {
     }),
     columnHelper.accessor("24hVolume", {
       header: () => (
-        <span className={cn(defaultHeaderStyles)}>
+        <span className={defaultHeaderStyles}>
           24h volume
           <CustomTooltip
             text={
@@ -100,14 +108,14 @@ function usePriceTableColumns() {
         </span>
       ),
       cell: (cell) => (
-        <p className={cn(defaultCellStyles)}>
+        <p className={defaultCellStyles}>
           {"$" + formatLargeNumber(cell.getValue())}
         </p>
       ),
     }),
     columnHelper.accessor("marketCap", {
       header: () => (
-        <span className={cn(defaultHeaderStyles)}>
+        <span className={defaultHeaderStyles}>
           market cap
           <CustomTooltip
             text={
@@ -117,14 +125,14 @@ function usePriceTableColumns() {
         </span>
       ),
       cell: (cell) => (
-        <p className={cn(defaultCellStyles)}>
+        <p className={defaultCellStyles}>
           {"$" + formatLargeNumber(cell.getValue())}
         </p>
       ),
     }),
     columnHelper.accessor("sparkline", {
       header: () => (
-        <span className={cn(defaultHeaderStyles)}>
+        <span className={defaultHeaderStyles}>
           7D Chart
           <CustomTooltip
             text={
@@ -148,6 +156,7 @@ function usePriceTableColumns() {
           </div>
         </div>
       ),
+      enableSorting: false,
     }),
   ]
 
