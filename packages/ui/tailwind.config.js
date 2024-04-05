@@ -63,7 +63,7 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        brand: "#1119fa",
+        brand: "#2ea5fb",
         green: "#00a68c",
         red: "#d9475a",
         yellow: "#FFC312",
@@ -77,6 +77,9 @@ const config = {
         twc_inverse: "hsl(var(--twc-inverse))",
         twc_tooltip__background: "hsl(var(--twc-tooltip__background))",
         twc_tooltip__text: "hsl(var(--twc-tooltip__text))",
+        twc_table_row__background: "hsl(var(--twc-table_row__background))",
+        twc_table_row__background_hover:
+          "hsl(var(--twc-table_row__background_hover))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -112,6 +115,8 @@ const config = {
           muted: "#5d667b",
           border: "#C9CFDD",
           accent: "#ffffff",
+          table_row__background: "#ffffff",
+          table_row__background_hover: "#ffffff",
         },
         dark: {
           foreground: "#0B1426",
@@ -124,6 +129,8 @@ const config = {
           accent: "#122036",
           tooltip__background: "#ffffff",
           tooltip__text: "#373737",
+          table_row__background: "#122640",
+          table_row__background_hover: "#122036",
         },
       },
       {
