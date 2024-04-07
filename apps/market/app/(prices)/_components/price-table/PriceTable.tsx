@@ -17,7 +17,7 @@ function PriceTable() {
           data={tableData}
           columns={columns}
           enableSorting
-          pageSize={10}
+          pageSize={1}
         />
       </div>
     </div>

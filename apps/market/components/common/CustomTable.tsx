@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import {
   flexRender,
   getCoreRowModel,
@@ -9,6 +9,13 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import {
+  Pagination,
+  PaginationButton,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationNext,
+  PaginationPrevious,
   Table,
   TableBody,
   TableCell,
@@ -17,6 +24,7 @@ import {
   TableRow,
 } from "@ui/components"
 import { cn } from "@ui/lib/utils"
+import { paginationBuilder } from "~/utils/helpers"
 import {
   ChevronDownIcon,
   ChevronsUpDownIcon,
@@ -56,9 +64,7 @@ function CustomTable({
     onPaginationChange: setPagination,
   })
 
-  useEffect(() => {
-    console.log(pagination.pageIndex)
-  }, [pagination.pageIndex])
+  console.log(paginationBuilder(pagination.pageIndex, table.getPageCount()))
 
   return (
     <>
@@ -120,71 +126,52 @@ function CustomTable({
           ))}
         </TableBody>
       </Table>
-      {/*<Pagination className="my-5 flex justify-end">*/}
-      {/*  <PaginationContent>*/}
-      {/*    <PaginationItem>*/}
-      {/*      <PaginationPrevious*/}
-      {/*        onClick={() => table.previousPage()}*/}
-      {/*        disabled={!table.getCanPreviousPage()}*/}
-      {/*      />*/}
-      {/*    </PaginationItem>*/}
 
-      {/*    <PaginationItem>*/}
-      {/*      <PaginationButton*/}
-      {/*        onClick={() => table.firstPage()}*/}
-      {/*        isActive={pagination.pageIndex == 0}*/}
-      {/*      >*/}
-      {/*        1*/}
-      {/*      </PaginationButton>*/}
-      {/*    </PaginationItem>*/}
+      <Pagination className="my-5 flex justify-end">
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious
+              onClick={() => table.previousPage()}
+              disabled={!table.getCanPreviousPage()}
+            />
+          </PaginationItem>
 
-      {/*    {*/}
-      {/*      pagination.pageIndex + 2 < table.getPageCount() && (*/}
-      {/*        <PaginationItem>*/}
-      {/*          <PaginationButton*/}
-      {/*            onClick={() => table.setPageIndex(pagination.pageIndex + 1)}*/}
-      {/*            // isActive={pagination.pageIndex == 0}*/}
-      {/*          >*/}
-      {/*            {pagination.pageIndex + 2}*/}
-      {/*          </PaginationButton>*/}
-      {/*        </PaginationItem>*/}
-      {/*      )*/}
-      {/*    }*/}
+          {/*    /!*{table.getPageCount() > 3 && (*!/*/}
+          {/*    /!*  <PaginationItem>*!/*/}
+          {/*    /!*    <PaginationEllipsis />*!/*/}
+          {/*    /!*  </PaginationItem>*!/*/}
+          {/*    /!*)}*!/*/}
 
-      {/*    /!*{Array.from({ length: pagination.pageIndex + 3 }, (_, i) => (*!/*/}
-      {/*    /!*  <PaginationItem>*!/*/}
-      {/*    /!*    <PaginationButton*!/*/}
-      {/*    /!*      onClick={() => table.setPageIndex(i + 1)}*!/*/}
-      {/*    /!*      isActive={pagination.pageIndex == i + 1}*!/*/}
-      {/*    /!*    >*!/*/}
-      {/*    /!*      {i + 2}*!/*/}
-      {/*    /!*    </PaginationButton>*!/*/}
-      {/*    /!*  </PaginationItem>*!/*/}
-      {/*    /!*))}*!/*/}
+          {/*    /!*<PaginationItem>*!/*/}
+          {/*    /!*  <PaginationButton*!/*/}
+          {/*    /!*    onClick={() => table.lastPage()}*!/*/}
+          {/*    /!*    isActive={pagination.pageIndex == table.getPageCount() - 1}*!/*/}
+          {/*    /!*  >*!/*/}
+          {/*    /!*    {table.getPageCount()}*!/*/}
+          {/*    /!*  </PaginationButton>*!/*/}
+          {/*    /!*</PaginationItem>*!/*/}
 
-      {/*    {table.getPageCount() > 3 && (*/}
-      {/*      <PaginationItem>*/}
-      {/*        <PaginationEllipsis />*/}
-      {/*      </PaginationItem>*/}
-      {/*    )}*/}
+          {paginationBuilder(pagination.pageIndex, table.getPageCount()).map(
+            (item) => (
+              <PaginationItem key={item}>
+                <PaginationButton
+                  onClick={() => table.setPageIndex(Number(item) - 1)}
+                  isActive={pagination.pageIndex == Number(item) - 1}
+                >
+                  {item}
+                </PaginationButton>
+              </PaginationItem>
+            ),
+          )}
 
-      {/*    <PaginationItem>*/}
-      {/*      <PaginationButton*/}
-      {/*        onClick={() => table.lastPage()}*/}
-      {/*        isActive={pagination.pageIndex == table.getPageCount() - 1}*/}
-      {/*      >*/}
-      {/*        {table.getPageCount()}*/}
-      {/*      </PaginationButton>*/}
-      {/*    </PaginationItem>*/}
-
-      {/*    <PaginationItem>*/}
-      {/*      <PaginationNext*/}
-      {/*        onClick={() => table.nextPage()}*/}
-      {/*        disabled={!table.getCanNextPage()}*/}
-      {/*      />*/}
-      {/*    </PaginationItem>*/}
-      {/*  </PaginationContent>*/}
-      {/*</Pagination>*/}
+          <PaginationItem>
+            <PaginationNext
+              onClick={() => table.nextPage()}
+              disabled={!table.getCanNextPage()}
+            />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
     </>
   )
 }
