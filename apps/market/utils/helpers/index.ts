@@ -17,7 +17,7 @@ export function paginationBuilder(currentPage: number, totalPages: number) {
     left = current - delta,
     right = current + delta + 2,
     range: number[] = [],
-    rangeWithDots: (boolean | string)[] = [],
+    rangeWithDots: (false | number)[] = [],
     l
 
   for (let i = 1; i <= last; i++) {
@@ -31,7 +31,7 @@ export function paginationBuilder(currentPage: number, totalPages: number) {
       if (i - l === 2) {
         rangeWithDots.push(l + 1)
       } else if (i - l !== 1) {
-        rangeWithDots.push(true)
+        rangeWithDots.push(false)
       }
     }
     rangeWithDots.push(i)
