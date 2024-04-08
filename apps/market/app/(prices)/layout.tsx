@@ -1,3 +1,4 @@
+import Footer from "~/components/layout/Footer"
 import Header from "~/components/layout/header/Header"
 import Stats from "~/components/layout/stats/Stats"
 
@@ -11,6 +12,7 @@ export default function PricesLayout({
       <Header />
       <Stats />
       <div>{children}</div>
+      <Footer />
     </>
   )
 }
