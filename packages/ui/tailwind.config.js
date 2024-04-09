@@ -130,7 +130,7 @@ const config = {
           tooltip__background: "#ffffff",
           tooltip__text: "#373737",
           table_row__background: "#122640",
-          table_row__background_hover: "#122036",
+          table_row__background_hover: "#122f4d",
         },
       },
       {

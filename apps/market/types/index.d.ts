@@ -90,3 +90,19 @@ export interface CoinsParams {
 export type GetCoinsResponse = {
   data: { stats: Stats; data: { coins: Coin[] } }
 }
+
+interface SearchResult {
+  uuid: string
+  iconUrl: string
+  name: string
+  symbol: string
+  price: string
+}
+
+export interface SearchResponse {
+  data: {
+    data: {
+      coins: SearchResult[]
+    }
+  }
+}
