@@ -1,31 +1,27 @@
 "use client"
 
-import { ChangeEvent, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Input } from "@ui/components"
 import SearchResult from "~/components/layout/header/search/SearchResult"
-import { useSearchCoin } from "~/services/api/common/hooks"
-import { useDebounce } from "~/utils/hooks/useDebounce"
 import { SearchIcon } from "lucide-react"
 
 function SearchInput() {
   const searchInputRef = useRef<HTMLInputElement>(null)
-  const [inputValue, setInputValue] = useState("")
-  const [searchQuery, setSearchQuery] = useState("")
+  // const [inputValue, setInputValue] = useState("")
+  // const [searchQuery, setSearchQuery] = useState("")
   const [showResults, setShowResults] = useState(false)
-  const { data: result } = useSearchCoin({ query: searchQuery })
-
-  const handleSearch = useDebounce((term: string) => {
-    // Perform search operation with the debounced term
-    // setSearchQuery(term)
-    setSearchQuery(term)
-  }, 500)
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target
-    setInputValue(value)
-
-    handleSearch(value)
-  }
+  // const { data: result } = useSearchCoin({ query: searchQuery })
+  //
+  // const handleSearch = useDebounce((term: string) => {
+  //   setSearchQuery(term)
+  // }, 500)
+  //
+  // const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  //   const { value } = event.target
+  //   setInputValue(value)
+  //
+  //   handleSearch(value)
+  // }
 
   const triggerSearchInput = (e: KeyboardEvent) => {
     if (e.code === "Slash") {
@@ -47,8 +43,8 @@ function SearchInput() {
       <Input
         className="h-8"
         ref={searchInputRef}
-        value={inputValue}
-        onChange={handleChange}
+        // value={inputValue}
+        // onChange={handleChange}
         placeholder="Search coins..."
         onFocus={() => setShowResults(true)}
         onBlur={() => setShowResults(false)}
@@ -64,7 +60,10 @@ function SearchInput() {
       />
       {showResults && (
         <div className="absolute left-0 right-0 top-8 z-50">
-          <SearchResult result={result?.data.data.coins} />
+          <SearchResult
+            result={undefined}
+            // result={result?.data.data.coins}
+          />
         </div>
       )}
     </div>

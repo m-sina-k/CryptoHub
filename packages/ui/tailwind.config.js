@@ -81,6 +81,7 @@ const config = {
         twc_table_row__background_hover:
           "hsl(var(--twc-table_row__background_hover))",
       },
+      twc_badge_background: "hsl(var(--twc-badge_background))",
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -117,6 +118,7 @@ const config = {
           accent: "#ffffff",
           table_row__background: "#ffffff",
           table_row__background_hover: "#ffffff",
+          badge_background: "#eaeef4",
         },
         dark: {
           foreground: "#0B1426",
@@ -131,6 +133,7 @@ const config = {
           tooltip__text: "#373737",
           table_row__background: "#122640",
           table_row__background_hover: "#122f4d",
+          badge_background: "#293244",
         },
       },
       {

@@ -1,6 +1,5 @@
 import { useState } from "react"
 import {
-  ColumnDef,
   flexRender,
   getCoreRowModel,
   getPaginationRowModel,
@@ -15,7 +14,7 @@ import TablePagination from "~/components/common/table/TablePagination"
 
 interface CustomTableProps {
   data: unknown[]
-  columns: ColumnDef<any, any>[]
+  columns: any
   enableSorting?: boolean
   pageSize?: number
 }
