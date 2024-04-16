@@ -6,19 +6,42 @@ import {
   AccordionTrigger,
   Badge,
 } from "@ui/components"
+import { FilterProps } from "~/app/(prices)/_components/price-table/filters/PriceTableFilters"
+import { Tag } from "~/types"
 
-function TagFilter() {
-  const tags = ["Defi", "DEX", "Gaming", "Meme"]
+const tags: Tag[] = [
+  "defi",
+  "stablecoin",
+  "nft",
+  "dex",
+  "exchange",
+  "staking",
+  "dao",
+  "meme",
+  "privacy",
+  "metaverse",
+  "gaming",
+  "wrapped",
+  "layer-1",
+  "layer-2",
+  "fan-token",
+  "football-club",
+  "web3",
+  "social",
+]
 
+function TagFilter({ filters, setFilters }: FilterProps) {
   return (
     <Accordion type="single" collapsible>
-      <AccordionItem value="item-1">
+      <AccordionItem value="category">
         <AccordionTrigger>Category</AccordionTrigger>
-        <AccordionContent className="grid grid-cols-2 gap-2">
+        <AccordionContent className="grid max-h-44 grid-cols-2 gap-2 overflow-auto">
           {tags.map((tag) => (
             <Badge
-              className="flex cursor-pointer justify-center bg-[#293244] py-1"
               key={tag}
+              isActive={filters?.tag === tag}
+              onClick={() => setFilters("tag", tag)}
+              className={"flex cursor-pointer justify-center py-1"}
             >
               {tag}
             </Badge>

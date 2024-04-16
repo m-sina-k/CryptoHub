@@ -6,9 +6,11 @@ import {
   AccordionTrigger,
   Badge,
 } from "@ui/components"
+import { FilterProps } from "~/app/(prices)/_components/price-table/filters/PriceTableFilters"
+import { Order } from "~/types"
 
-function OrderByFilter() {
-  const orderByOptions = [
+function OrderByFilter({ filters, setFilters }: FilterProps) {
+  const orderByOptions: Order[] = [
     "price",
     "marketCap",
     "24hVolume",
@@ -18,15 +20,17 @@ function OrderByFilter() {
 
   return (
     <Accordion type="single" collapsible>
-      <AccordionItem value="item-1">
+      <AccordionItem value="order-by">
         <AccordionTrigger>Order by</AccordionTrigger>
         <AccordionContent className="grid grid-cols-2 gap-2">
-          {orderByOptions.map((option) => (
+          {orderByOptions.map((order) => (
             <Badge
-              className="flex cursor-pointer justify-center bg-[#293244] py-1"
-              key={option}
+              key={order}
+              isActive={filters?.orderBy === order}
+              onClick={() => setFilters("orderBy", order)}
+              className="flex cursor-pointer justify-center py-1"
             >
-              {option}
+              {order}
             </Badge>
           ))}
         </AccordionContent>

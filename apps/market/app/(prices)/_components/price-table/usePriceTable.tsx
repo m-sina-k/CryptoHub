@@ -1,8 +1,12 @@
-import { coins } from "~/utils/mock"
+import { useGetCoins } from "~/services/api/common/hooks"
+import { useStore } from "~/store"
 
 const usePriceTable = () => {
+  const { filters } = useStore((state) => state)
+  const { data, isLoading } = useGetCoins({ limit: 50, ...filters })
   return {
-    tableData: coins,
+    isLoading,
+    tableData: data?.data.data.coins,
   }
 }
 

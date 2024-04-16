@@ -106,3 +106,11 @@ export interface SearchResponse {
     }
   }
 }
+
+export interface Filters {
+  tag: Tag
+  orderBy: Order
+  orderDirection: "asc" | "desc"
+  minVolume: number
+  limit: number
+}

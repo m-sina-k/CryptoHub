@@ -7,7 +7,7 @@ import CustomTable from "~/components/common/CustomTable"
 import usePriceTable from "./usePriceTable"
 
 function PriceTable() {
-  const { tableData } = usePriceTable()
+  const { tableData, isLoading } = usePriceTable()
   const { columns } = usePriceTableColumns()
 
   return (
@@ -19,12 +19,14 @@ function PriceTable() {
         <PriceTableFilters />
       </section>
       <div className="mt-5">
-        <CustomTable
-          data={tableData}
-          columns={columns}
-          enableSorting
-          pageSize={10}
-        />
+        {!isLoading && (
+          <CustomTable
+            enableSorting
+            pageSize={10}
+            columns={columns}
+            data={tableData as unknown[]}
+          />
+        )}
       </div>
     </div>
   )

@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import Image from "next/image"
 import { cn } from "@ui/lib/utils"
 import { type SearchResult as SearchResultType } from "~/types"

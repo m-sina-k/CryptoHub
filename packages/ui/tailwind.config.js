@@ -80,8 +80,8 @@ const config = {
         twc_table_row__background: "hsl(var(--twc-table_row__background))",
         twc_table_row__background_hover:
           "hsl(var(--twc-table_row__background_hover))",
+        twc_badge_background: "hsl(var(--twc-badge_background))",
       },
-      twc_badge_background: "hsl(var(--twc-badge_background))",
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
