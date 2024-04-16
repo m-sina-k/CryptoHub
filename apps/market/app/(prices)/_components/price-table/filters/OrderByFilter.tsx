@@ -10,13 +10,7 @@ import { FilterProps } from "~/app/(prices)/_components/price-table/filters/Pric
 import { Order } from "~/types"
 
 function OrderByFilter({ filters, setFilters }: FilterProps) {
-  const orderByOptions: Order[] = [
-    "price",
-    "marketCap",
-    "24hVolume",
-    "change",
-    "listedAt",
-  ]
+  const orderByOptions: Order[] = ["price", "marketCap", "24hVolume", "change"]
 
   return (
     <Accordion type="single" collapsible>
@@ -28,9 +22,9 @@ function OrderByFilter({ filters, setFilters }: FilterProps) {
               key={order}
               isActive={filters?.orderBy === order}
               onClick={() => setFilters("orderBy", order)}
-              className="flex cursor-pointer justify-center py-1"
+              className="flex cursor-pointer justify-center py-1 capitalize"
             >
-              {order}
+              {order.replace(/([a-z])([A-Z])/g, "$1 $2").toLowerCase()}
             </Badge>
           ))}
         </AccordionContent>

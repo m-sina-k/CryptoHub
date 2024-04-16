@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button, DialogFooter } from "@ui/components"
 import {
   Dialog,
@@ -12,7 +12,6 @@ import LimitFilter from "~/app/(prices)/_components/price-table/filters/LimitFil
 import MinVolumeFilter from "~/app/(prices)/_components/price-table/filters/MinVolumeFilter"
 import OrderByFilter from "~/app/(prices)/_components/price-table/filters/OrderByFilter"
 import OrderDirectionFilter from "~/app/(prices)/_components/price-table/filters/OrderDirectionFilter"
-// import SelectedFilters from "~/app/(prices)/_components/price-table/filters/SelectedFilters"
 import TagFilter from "~/app/(prices)/_components/price-table/filters/TagFilter"
 import { useStore } from "~/store"
 import { Filters } from "~/types"
@@ -24,8 +23,9 @@ export interface FilterProps {
 }
 
 function PriceTableFilters() {
-  const [openFilterModal, setOpenFilterModal] = useState(false)
   const [filters, setFilters] = useState<Partial<Filters>>({})
+  const [openFilterModal, setOpenFilterModal] = useState(false)
+  const globalFilters = useStore((state) => state.filters)
   const setGlobalFilters = useStore((state) => state.setFilters)
 
   const handleFilter = (key: keyof Filters, value: string | undefined) => {
@@ -43,11 +43,9 @@ function PriceTableFilters() {
     setOpenFilterModal(false)
   }
 
-  // const deselectFilter = (key: keyof Filters) =>{
-  //   const updatedFilters = { ...filters }
-  //   delete updatedFilters[key]
-  //   setFilters(updatedFilters)
-  // }
+  useEffect(() => {
+    setFilters({ ...globalFilters })
+  }, [globalFilters])
 
   return (
     <Dialog open={openFilterModal} onOpenChange={setOpenFilterModal}>
@@ -62,7 +60,6 @@ function PriceTableFilters() {
           <DialogTitle>Filters</DialogTitle>
         </DialogHeader>
         <DialogDescription>
-          {/*<SelectedFilters filters={filters} setFilters={deselectFilter} />*/}
           <TagFilter filters={filters} setFilters={handleFilter} />
           <OrderByFilter filters={filters} setFilters={handleFilter} />
           <OrderDirectionFilter filters={filters} setFilters={handleFilter} />

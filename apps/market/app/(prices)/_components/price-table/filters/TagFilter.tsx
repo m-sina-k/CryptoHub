@@ -41,7 +41,7 @@ function TagFilter({ filters, setFilters }: FilterProps) {
               key={tag}
               isActive={filters?.tag === tag}
               onClick={() => setFilters("tag", tag)}
-              className={"flex cursor-pointer justify-center py-1"}
+              className="flex cursor-pointer justify-center py-1 capitalize"
             >
               {tag}
             </Badge>

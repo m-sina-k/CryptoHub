@@ -21,7 +21,7 @@ function OrderDirectionFilter({ filters, setFilters }: FilterProps) {
               key={orderDirection}
               isActive={filters?.orderDirection === orderDirection}
               onClick={() => setFilters("orderDirection", orderDirection)}
-              className={"flex cursor-pointer justify-center py-1"}
+              className="flex cursor-pointer justify-center py-1 capitalize"
             >
               {orderDirection}
             </Badge>
