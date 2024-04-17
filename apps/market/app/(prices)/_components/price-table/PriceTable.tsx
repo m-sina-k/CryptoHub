@@ -12,7 +12,7 @@ import usePriceTable from "./usePriceTable"
 
 function PriceTable() {
   const { columns } = usePriceTableColumns()
-  const { tableData, isLoading } = usePriceTable()
+  const { tableData, isLoading, isError } = usePriceTable()
   const { filters, setFilters } = useStore((state) => state)
 
   const deselectFilter = (key: keyof Filters) => {
@@ -53,14 +53,14 @@ function PriceTable() {
         </div>
       )}
       <div className="mt-5">
-        {!isLoading && (
-          <CustomTable
-            enableSorting
-            pageSize={10}
-            columns={columns}
-            data={tableData as unknown[]}
-          />
-        )}
+        <CustomTable
+          enableSorting
+          pageSize={10}
+          columns={columns}
+          isError={isError}
+          isLoading={isLoading}
+          data={tableData as unknown[]}
+        />
       </div>
     </div>
   )
