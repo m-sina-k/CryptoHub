@@ -88,7 +88,7 @@ export interface CoinsParams {
 }
 
 export type GetCoinsResponse = {
-  data: { stats: Stats; data: { coins: Coin[] } }
+  data: { data: { stats: Stats; coins: Coin[] } }
 }
 
 interface SearchResult {

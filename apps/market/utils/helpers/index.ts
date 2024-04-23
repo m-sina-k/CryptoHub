@@ -10,33 +10,22 @@ export const formatLargeNumber = (num: string) => {
         : Math.abs(Number(num))
 }
 
-export function paginationBuilder(currentPage: number, totalPages: number) {
-  let current = currentPage,
-    last = totalPages,
-    delta = 2,
-    left = current - delta,
-    right = current + delta + 2,
-    range: number[] = [],
-    rangeWithDots: (false | number)[] = [],
-    l
+export function paginationBuilder(current: number, max: number) {
+  let prev = current === 0 ? null : current - 1,
+    next = current === max ? null : current + 1,
+    items: (number | false)[] = [1]
 
-  for (let i = 1; i <= last; i++) {
-    if (i == 1 || i == last || (i >= left && i < right)) {
-      range.push(i)
-    }
-  }
+  if (current === 0 && max === 0) return { current, prev, next, items }
+  if (current > 4) items.push(false)
 
-  for (let i of range) {
-    if (l) {
-      if (i - l === 2) {
-        rangeWithDots.push(l + 1)
-      } else if (i - l !== 1) {
-        rangeWithDots.push(false)
-      }
-    }
-    rangeWithDots.push(i)
-    l = i
-  }
+  let r = 2,
+    r1 = current - r,
+    r2 = current + r
 
-  return rangeWithDots
+  for (let i = r1 > 2 ? r1 : 2; i <= Math.min(max, r2); i++) items.push(i)
+
+  if (r2 + 1 < max) items.push(false)
+  if (r2 < max) items.push(max)
+
+  return { current, prev, next, items }
 }

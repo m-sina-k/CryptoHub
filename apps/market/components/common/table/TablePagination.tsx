@@ -1,4 +1,3 @@
-import { Table } from "@tanstack/react-table"
 import {
   Pagination,
   PaginationButton,
@@ -11,43 +10,49 @@ import {
 import { paginationBuilder } from "~/utils/helpers"
 
 interface TablePaginationProps {
-  table: Table<unknown>
   pageIndex: number
+  handlePageChange: (page: number) => void
+  totalPages: number
 }
 
-function TablePagination({ table, pageIndex }: TablePaginationProps) {
+function TablePagination({
+  pageIndex,
+  handlePageChange,
+  totalPages,
+}: TablePaginationProps) {
   return (
     <Pagination className="my-5 flex justify-end">
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
+            onClick={() => handlePageChange(--pageIndex)}
+            disabled={pageIndex === 0}
           />
         </PaginationItem>
 
-        {paginationBuilder(pageIndex, table.getPageCount()).map(
-          (item, index) =>
-            item === false ? (
-              <PaginationItem key={index}>
-                <PaginationEllipsis />
-              </PaginationItem>
-            ) : (
-              <PaginationItem key={index}>
-                <PaginationButton
-                  onClick={() => table.setPageIndex(Number(item) - 1)}
-                  isActive={pageIndex == Number(item) - 1}
-                >
-                  {item}
-                </PaginationButton>
-              </PaginationItem>
-            ),
+        {paginationBuilder(pageIndex, totalPages)?.items.map((item, index) =>
+          item === false ? (
+            <PaginationItem key={index}>
+              <PaginationEllipsis />
+            </PaginationItem>
+          ) : (
+            <PaginationItem key={index}>
+              <PaginationButton
+                isActive={pageIndex == Number(item) - 1}
+                onClick={() => {
+                  handlePageChange(Number(item) - 1)
+                }}
+              >
+                {item}
+              </PaginationButton>
+            </PaginationItem>
+          ),
         )}
 
         <PaginationItem>
           <PaginationNext
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
+            onClick={() => handlePageChange(++pageIndex)}
+            disabled={pageIndex === 100}
           />
         </PaginationItem>
       </PaginationContent>

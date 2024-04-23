@@ -4,7 +4,6 @@ import {
   getCoreRowModel,
   getPaginationRowModel,
   getSortedRowModel,
-  PaginationState,
   SortingState,
   useReactTable,
 } from "@tanstack/react-table"
@@ -19,35 +18,33 @@ interface CustomTableProps {
   isLoading?: boolean
   isError?: boolean
   enableSorting?: boolean
-  pageSize?: number
+  page: number
+  totalPages: number
+  handlePageChange: (page: number) => void
 }
 
 function CustomTable({
   data,
+  isError,
   columns,
   isLoading,
-  isError,
+  page,
+  handlePageChange,
+  totalPages,
   enableSorting = false,
-  pageSize = 50,
 }: CustomTableProps) {
   const [sorting, setSorting] = useState<SortingState>([])
-  const [pagination, setPagination] = useState<PaginationState>({
-    pageIndex: 0,
-    pageSize,
-  })
 
   const table = useReactTable({
     data,
     columns,
     state: {
-      pagination,
       ...(enableSorting && { sorting }),
     },
     ...(enableSorting && { onSortingChange: setSorting }),
     ...(enableSorting && { getSortedRowModel: getSortedRowModel() }),
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    onPaginationChange: setPagination,
   })
 
   return (
@@ -82,7 +79,11 @@ function CustomTable({
               ))}
             </TableBody>
           </Table>
-          <TablePagination table={table} pageIndex={pagination.pageIndex} />
+          <TablePagination
+            pageIndex={page}
+            handlePageChange={handlePageChange}
+            totalPages={totalPages}
+          />
         </>
       )}
     </>

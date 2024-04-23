@@ -12,7 +12,8 @@ import usePriceTable from "./usePriceTable"
 
 function PriceTable() {
   const { columns } = usePriceTableColumns()
-  const { tableData, isLoading, isError } = usePriceTable()
+  const { tableData, isLoading, isError, page, handlePageChange, totalPages } =
+    usePriceTable({ pageSize: 10 })
   const { filters, setFilters } = useStore((state) => state)
 
   const deselectFilter = (key: keyof Filters) => {
@@ -55,10 +56,12 @@ function PriceTable() {
       <div className="mt-5">
         <CustomTable
           enableSorting
-          pageSize={10}
           columns={columns}
           isError={isError}
           isLoading={isLoading}
+          page={page}
+          totalPages={totalPages}
+          handlePageChange={handlePageChange}
           data={tableData as unknown[]}
         />
       </div>
