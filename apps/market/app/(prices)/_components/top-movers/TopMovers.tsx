@@ -15,6 +15,26 @@ function TopMovers() {
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 4000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 750,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   }
 
   // const {
@@ -49,7 +69,7 @@ function TopMovers() {
   const topMovers = coins
 
   return (
-    <div className="top-movers mt-14">
+    <div className="top-movers mt-14 px-5">
       <div className="item-center flex gap-2">
         <h2 className="text-heading capitalize">top movers</h2>
         <CustomTooltip

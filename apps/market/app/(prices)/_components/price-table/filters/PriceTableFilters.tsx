@@ -55,7 +55,7 @@ function PriceTableFilters() {
           Filter
         </Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="max-h-[85%] overflow-auto">
         <DialogHeader>
           <DialogTitle>Filters</DialogTitle>
         </DialogHeader>

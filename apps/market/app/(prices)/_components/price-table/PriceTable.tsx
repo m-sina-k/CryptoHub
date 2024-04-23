@@ -23,7 +23,7 @@ function PriceTable() {
   }
 
   return (
-    <div className="mt-14">
+    <div className="mt-14 px-5">
       <section className="flex items-center justify-between">
         <h2 className="text-heading capitalize">
           Today's cryptocurrency prices

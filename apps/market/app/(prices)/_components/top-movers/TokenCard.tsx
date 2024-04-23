@@ -26,7 +26,7 @@ function TokenCard({ token }: TokenCardProps) {
             <span className="text-twc_muted">{token.symbol}</span>
           </p>
         </section>
-        <section className="h-[30px] w-[120px]">
+        <section className="h-[30px] w-[120px] overflow-hidden">
           <LineChart
             chartData={{
               id: token.name,

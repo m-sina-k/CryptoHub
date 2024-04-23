@@ -22,7 +22,7 @@ function CustomTableHeader({ table, enableSorting }: TableHeaderProps) {
             <TableHead
               key={header.id}
               className={cn(
-                "uppercase",
+                "whitespace-nowrap uppercase",
                 enableSorting && header.column.getCanSort() && "cursor-pointer",
               )}
               onClick={header.column.getToggleSortingHandler()}

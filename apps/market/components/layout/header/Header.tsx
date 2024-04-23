@@ -5,7 +5,7 @@ import { SunIcon } from "lucide-react"
 function Header() {
   return (
     <header className="bg-twc_foreground border-b-1 border-b-twc_border">
-      <div className="container flex items-center justify-between py-3">
+      <div className="container flex items-center justify-between gap-5 py-3">
         <section>
           <p className="text-twc_primary text-xl font-bold text-black">
             CryptoHub

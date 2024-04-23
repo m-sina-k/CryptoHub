@@ -14,6 +14,26 @@ function PopularTokens() {
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 4000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 750,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
   }
 
   // const {
@@ -30,9 +50,8 @@ function PopularTokens() {
   // if (isError) return <p>an error occurred!</p>
 
   return (
-    <div>
+    <div className="px-5">
       <h2 className="text-heading capitalize">what others are trading</h2>
-
       <div className="mt-5">
         <Slider {...settings}>
           {coins.map((token) => (
