@@ -10,6 +10,17 @@ export const formatLargeNumber = (num: string) => {
         : Math.abs(Number(num))
 }
 
+export const formatCoinPrice = (price: string) => {
+  return (
+    parseInt(price.split(".")[0] as string).toLocaleString() +
+    "." +
+    parseInt(price.split(".")[1] as string)
+      .toString()
+      .slice(0, 2) +
+    " USD"
+  )
+}
+
 export function paginationBuilder(current: number, max: number) {
   let prev = current === 0 ? null : current - 1,
     next = current === max ? null : current + 1,
