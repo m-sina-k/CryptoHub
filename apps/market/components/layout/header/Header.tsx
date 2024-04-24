@@ -1,6 +1,9 @@
-import { Button } from "@ui/components"
+import dynamic from "next/dynamic"
 import SearchInput from "~/components/layout/header/search/SearchInput"
-import { SunIcon } from "lucide-react"
+
+const ThemeSwitcher = dynamic(async () => await import("./ThemeSwitcher"), {
+  ssr: false,
+})
 
 function Header() {
   return (
@@ -13,9 +16,7 @@ function Header() {
         </section>
         <section className="flex items-center gap-2">
           <SearchInput />
-          <Button variant="ghost" className="flex h-8 w-8 p-1.5">
-            <SunIcon />
-          </Button>
+          <ThemeSwitcher />
         </section>
       </div>
     </header>

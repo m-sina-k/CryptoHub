@@ -34,7 +34,7 @@ function Badge({ className, variant, isActive, ...props }: BadgeProps) {
       className={cn(
         badgeVariants({ variant }),
         className,
-        isActive && "bg-brand hover:bg-brand",
+        isActive && "bg-brand hover:bg-brand text-white",
       )}
       {...props}
     />

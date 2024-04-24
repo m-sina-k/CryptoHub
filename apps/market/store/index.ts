@@ -1,7 +1,14 @@
 import { Filters } from "~/types"
 import { create } from "zustand"
+import { persist } from "zustand/middleware"
 
-type Theme = "light" | "dark"
+type ThemeName = "light" | "dark" | "system"
+type ThemeValue = "light" | "dark"
+
+export type Theme = {
+  name: ThemeName
+  value: ThemeValue
+}
 
 type State = {
   theme: Theme
@@ -13,11 +20,21 @@ type Action = {
   setFilters: (filters: Partial<Filters>) => void
 }
 
-export const useStore = create<State & Action>((set) => ({
-  theme: "dark",
-  filters: {},
-  setTheme: (selectedTheme: "light" | "dark") =>
-    set((state) => ({ ...state, theme: selectedTheme })),
-  setFilters: (filters: Partial<Filters>) =>
-    set((state) => ({ ...state, filters })),
-}))
+export const useStore = create<State & Action>()(
+  persist(
+    (set) => ({
+      filters: {},
+      theme: { name: "dark", value: "dark" },
+      setTheme: (selectedTheme: Theme) =>
+        set((state) => ({ ...state, theme: selectedTheme })),
+      setFilters: (filters: Partial<Filters>) =>
+        set((state) => ({ ...state, filters })),
+    }),
+    {
+      name: "X___________persist:CryptoHub_state___________X",
+      partialize: (state) => ({
+        theme: state.theme,
+      }),
+    },
+  ),
+)

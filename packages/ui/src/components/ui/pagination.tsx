@@ -46,8 +46,8 @@ const PaginationButton = ({
   <Button
     aria-current={isActive ? "page" : undefined}
     className={cn(
-      "text-twc_primary hover:bg-twc_accent border-1 flex size-7 rounded-sm bg-transparent px-1  text-xs",
-      isActive && "bg-brand hover:bg-brand",
+      "text-twc_primary hover:bg-twc_accent flex size-7 rounded-sm bg-transparent px-1 text-xs",
+      isActive && "bg-brand hover:bg-brand text-white",
       className,
     )}
     {...props}

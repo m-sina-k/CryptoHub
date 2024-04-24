@@ -28,3 +28,8 @@ input[type=number] {
 .top-movers .slick-list .slick-slide > div {
   padding: 0 10px;
 }
+
+.slick-arrow{
+  border-radius:100%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
