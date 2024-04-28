@@ -1,4 +1,3 @@
-import React from "react"
 import { CoinDetails } from "~/types"
 import { formatLargeNumber } from "~/utils/helpers"
 
@@ -30,7 +29,7 @@ function CoinStats({ coin }: CoinStatsProps) {
     },
   ]
   return (
-    <div className="mt-8 flex flex-wrap justify-between">
+    <div className="mt-8 flex flex-wrap gap-5">
       {coinStats.map((stat) => (
         <section>
           <p className="text-twc_muted text-sm">{stat.label}</p>

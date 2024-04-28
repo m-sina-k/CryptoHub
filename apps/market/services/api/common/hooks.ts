@@ -1,11 +1,14 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query"
 import {
+  getCoinDetails,
   getCoins,
   getGlobalStats,
   searchCoin,
 } from "~/services/api/common/services"
 import {
+  CoinDetails,
   SearchResponse,
+  TimePeriod,
   type CoinsParams,
   type GetCoinsResponse,
   type GlobalStatsResponse,
@@ -36,5 +39,18 @@ export const useSearchCoin = (params: {
   return useQuery({
     queryKey: ["search-result", params],
     queryFn: () => searchCoin(params),
+  })
+}
+
+export const useGetCoinDetails = (
+  coinId: string,
+  params: {
+    referenceCurrencyUuid?: string
+    timePeriod?: TimePeriod
+  },
+): UseQueryResult<{ data: { data: { coin: CoinDetails } } }, Error> => {
+  return useQuery({
+    queryKey: ["coin-details", coinId, params],
+    queryFn: () => getCoinDetails(coinId, params),
   })
 }

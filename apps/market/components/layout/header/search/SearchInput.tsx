@@ -4,6 +4,7 @@ import { ChangeEvent, useEffect, useRef, useState } from "react"
 import { Input } from "@ui/components"
 import SearchResult from "~/components/layout/header/search/SearchResult"
 import { useSearchCoin } from "~/services/api/common/hooks"
+import { useOutsideClick } from "~/utils/hooks/useClickOutside"
 import { useDebounce } from "~/utils/hooks/useDebounce"
 import { SearchIcon } from "lucide-react"
 
@@ -13,6 +14,10 @@ function SearchInput() {
   const [searchQuery, setSearchQuery] = useState("")
   const [showResults, setShowResults] = useState(false)
   const { data: result } = useSearchCoin({ query: searchQuery })
+
+  const ref = useOutsideClick(() => {
+    setShowResults(false)
+  })
 
   const handleSearch = useDebounce((term: string) => {
     setSearchQuery(term)
@@ -40,8 +45,12 @@ function SearchInput() {
       window.removeEventListener("keyup", (event) => triggerSearchInput(event))
   }, [])
 
+  const handleCloseMenu = () => {
+    setShowResults(false)
+  }
+
   return (
-    <div className="relative">
+    <div className="relative" ref={ref}>
       <Input
         className="h-8"
         ref={searchInputRef}
@@ -49,7 +58,6 @@ function SearchInput() {
         onChange={handleChange}
         placeholder="Search coins..."
         onFocus={() => setShowResults(true)}
-        onBlur={() => setShowResults(false)}
         startAdornment={<SearchIcon className="h-[16px] w-[16px]" />}
         endAdornment={
           <span
@@ -62,7 +70,10 @@ function SearchInput() {
       />
       {showResults && (
         <div className="absolute left-0 right-0 top-8 z-50">
-          <SearchResult result={result?.data.data.coins} />
+          <SearchResult
+            result={result?.data.data.coins}
+            handleCloseMenu={handleCloseMenu}
+          />
         </div>
       )}
     </div>

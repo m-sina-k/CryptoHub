@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 // import { useGetCoins } from "~/services/api/common/hooks"
 import { coins } from "~/utils/mock"
 import Slider from "react-slick"
@@ -56,16 +57,18 @@ function PopularTokens() {
         <Slider {...settings}>
           {coins.map((token) => (
             <div key={token.uuid} className="bg-twc_accent py-2">
-              <div className="border-r-1 border-r-twc_border flex items-center justify-center gap-3 px-2">
-                <Image
-                  width={24}
-                  height={24}
-                  src={token.iconUrl}
-                  alt={token.symbol}
-                />
-                <p className="truncate">{token.name}</p>
-                <p className="text-twc_muted">{token.symbol}</p>
-              </div>
+              <Link href={`/coin/${token.uuid}`}>
+                <div className="border-r-1 border-r-twc_border flex items-center justify-center gap-3 px-2">
+                  <Image
+                    width={24}
+                    height={24}
+                    src={token.iconUrl}
+                    alt={token.symbol}
+                  />
+                  <p className="truncate">{token.name}</p>
+                  <p className="text-twc_muted">{token.symbol}</p>
+                </div>
+              </Link>
             </div>
           ))}
         </Slider>

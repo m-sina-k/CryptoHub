@@ -12,8 +12,15 @@ import usePriceTable from "./usePriceTable"
 
 function PriceTable() {
   const { columns } = usePriceTableColumns()
-  const { tableData, isLoading, isError, page, handlePageChange, totalPages } =
-    usePriceTable({ pageSize: 10 })
+  const {
+    tableData,
+    isLoading,
+    isError,
+    page,
+    handleClickRow,
+    handlePageChange,
+    totalPages,
+  } = usePriceTable({ pageSize: 10 })
   const { filters, setFilters } = useStore((state) => state)
 
   const deselectFilter = (key: keyof Filters) => {
@@ -62,6 +69,7 @@ function PriceTable() {
           page={page}
           totalPages={totalPages}
           handlePageChange={handlePageChange}
+          handleClickRow={handleClickRow}
           data={tableData as unknown[]}
         />
       </div>

@@ -1,12 +1,12 @@
+import Logo from "~/components/common/Logo"
+
 function Footer() {
   return (
     <div className="bg-twc_foreground mt-10 py-5">
       <div className="container">
         <div className="flex">
           <section>
-            <p className="text-twc_primary text-xl font-bold text-black">
-              CryptoHub
-            </p>
+            <Logo />
           </section>
         </div>
         <div className="mt-2">

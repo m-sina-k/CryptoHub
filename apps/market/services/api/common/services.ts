@@ -1,6 +1,8 @@
 import { http } from "~/services/core/http"
 import {
+  CoinDetails,
   SearchResponse,
+  TimePeriod,
   type CoinsParams,
   type GetCoinsResponse,
   type StatParams,
@@ -24,4 +26,14 @@ export const searchCoin = (params: {
   query: string
 }): Promise<SearchResponse> => {
   return http.get(commonRoutes.search, { params })
+}
+
+export const getCoinDetails = (
+  coinId: string,
+  params: {
+    referenceCurrencyUuid?: string
+    timePeriod?: TimePeriod
+  },
+): Promise<{ data: { data: { coin: CoinDetails } } }> => {
+  return http.get(commonRoutes.coinDetails(coinId), { params })
 }

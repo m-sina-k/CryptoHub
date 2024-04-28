@@ -8,6 +8,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import { Table, TableBody, TableCell, TableRow } from "@ui/components"
+import { cn } from "@ui/lib/utils"
 import CustomTableHeader from "~/components/common/table/TableHeader"
 import TablePagination from "~/components/common/table/TablePagination"
 import { LoaderIcon } from "lucide-react"
@@ -21,6 +22,7 @@ interface CustomTableProps {
   page: number
   totalPages: number
   handlePageChange: (page: number) => void
+  handleClickRow?: (data: any) => void
 }
 
 function CustomTable({
@@ -30,6 +32,7 @@ function CustomTable({
   isLoading,
   page,
   handlePageChange,
+  handleClickRow,
   totalPages,
   enableSorting = false,
 }: CustomTableProps) {
@@ -65,7 +68,15 @@ function CustomTable({
               {table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
-                  className="border-y-1 border-y-twc_border bg-twc_table_row__background hover:bg-twc_table_row__background_hover"
+                  onClick={
+                    handleClickRow
+                      ? () => handleClickRow(table.getRow(row.id).original)
+                      : undefined
+                  }
+                  className={cn(
+                    "border-y-1 border-y-twc_border bg-twc_table_row__background hover:bg-twc_table_row__background_hover",
+                    handleClickRow && "cursor-pointer",
+                  )}
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
