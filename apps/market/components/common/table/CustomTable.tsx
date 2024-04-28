@@ -7,11 +7,11 @@ import {
   SortingState,
   useReactTable,
 } from "@tanstack/react-table"
-import { Table, TableBody, TableCell, TableRow } from "@ui/components"
+import { Table, TableBody, TableCell, TableRow } from "@ui/index"
 import { cn } from "@ui/lib/utils"
+import Loading from "~/components/common/Loading"
 import CustomTableHeader from "~/components/common/table/TableHeader"
 import TablePagination from "~/components/common/table/TablePagination"
-import { LoaderIcon } from "lucide-react"
 
 interface CustomTableProps {
   data: unknown[]
@@ -53,8 +53,8 @@ function CustomTable({
   return (
     <>
       {isLoading ? (
-        <div className="flex h-[100px] w-full items-center justify-center">
-          <LoaderIcon className="animate-spin" />
+        <div className="h-[150px]">
+          <Loading />
         </div>
       ) : isError ? (
         <div className="flex h-[100px] w-full items-center justify-center">

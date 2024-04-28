@@ -35,11 +35,14 @@ type Tag =
 type Order = "price" | "marketCap" | "24hVolume" | "change" | "listedAt"
 
 export interface Stats {
-  totalCoins: number
-  totalMarkets: number
-  totalExchanges: number
-  totalMarketCap: string
-  total24hVolume: string
+  data: {
+    totalCoins: number
+    totalMarkets: number
+    totalExchanges: number
+    totalMarketCap: string
+    total24hVolume: string
+    btcDominance: string
+  }
 }
 
 export interface StatParams {

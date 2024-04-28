@@ -2,8 +2,9 @@
 
 import Image from "next/image"
 import Link from "next/link"
-// import { useGetCoins } from "~/services/api/common/hooks"
-import { coins } from "~/utils/mock"
+import Error from "~/components/common/Error"
+import Loading from "~/components/common/Loading"
+import { useGetCoins } from "~/services/api/common/hooks"
 import Slider from "react-slick"
 
 function PopularTokens() {
@@ -37,25 +38,35 @@ function PopularTokens() {
     ],
   }
 
-  // const {
-  //   data: popularTokens,
-  //   isLoading,
-  //   isError,
-  // } = useGetCoins({
-  //   timePeriod: "1h",
-  //   orderBy: "change",
-  //   limit: 14,
-  // })
+  const {
+    data: popularTokens,
+    isLoading,
+    isError,
+  } = useGetCoins({
+    timePeriod: "1h",
+    orderBy: "change",
+    limit: 14,
+  })
 
-  // if (isLoading) return <p>Loading...</p>
-  // if (isError) return <p>an error occurred!</p>
+  if (isLoading)
+    return (
+      <div className="h-[150px]">
+        <Loading />
+      </div>
+    )
+  if (isError)
+    return (
+      <div className="h-[150px]">
+        <Error errorMessage="Error while loading popular coins." />
+      </div>
+    )
 
   return (
     <div className="px-5">
       <h2 className="text-heading capitalize">what others are trading</h2>
       <div className="mt-5">
         <Slider {...settings}>
-          {coins.map((token) => (
+          {popularTokens?.data.data.coins.map((token) => (
             <div key={token.uuid} className="bg-twc_accent py-2">
               <Link href={`/coin/${token.uuid}`}>
                 <div className="border-r-1 border-r-twc_border flex items-center justify-center gap-3 px-2">

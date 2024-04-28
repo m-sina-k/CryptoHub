@@ -3,7 +3,7 @@
 import { Badge } from "@ui/components"
 import PriceTableFilters from "~/app/(prices)/_components/price-table/filters/PriceTableFilters"
 import usePriceTableColumns from "~/app/(prices)/_components/price-table/usePriceTableColumns"
-import CustomTable from "~/components/common/CustomTable"
+import CustomTable from "~/components/common/table/CustomTable"
 import { useStore } from "~/store"
 import { Filters } from "~/types"
 import { formatLargeNumber } from "~/utils/helpers"
@@ -17,9 +17,9 @@ function PriceTable() {
     isLoading,
     isError,
     page,
+    totalPages,
     handleClickRow,
     handlePageChange,
-    totalPages,
   } = usePriceTable({ pageSize: 10 })
   const { filters, setFilters } = useStore((state) => state)
 

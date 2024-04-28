@@ -7,17 +7,28 @@ import { Button } from "@ui/components"
 import { cn } from "@ui/lib/utils"
 import CoinStats from "~/app/(prices)/coin/[coinId]/_components/CoinStats"
 import SparkLineChart from "~/app/(prices)/coin/[coinId]/_components/SparkLineChart"
+import Error from "~/components/common/Error"
+import Loading from "~/components/common/Loading"
 import { useGetCoinDetails } from "~/services/api/common/hooks"
 import { formatCoinPrice } from "~/utils/helpers"
-import { coin } from "~/utils/mock"
 import { ChevronRightIcon } from "lucide-react"
 
 function Page() {
   const { coinId } = useParams()
   const { data, isLoading, isError } = useGetCoinDetails(coinId as string, {})
 
-  if (isLoading) return <p>Loading...</p>
-  if (isError) return <p>Error...</p>
+  if (isLoading)
+    return (
+      <div className="h-[80vh]">
+        <Loading />
+      </div>
+    )
+  if (isError)
+    return (
+      <div className="h-[80vh]">
+        <Error showBackToHome />
+      </div>
+    )
 
   const coin = data?.data.data.coin!
   const isChangeNegative = coin.change.startsWith("-")

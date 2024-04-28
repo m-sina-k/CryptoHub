@@ -52,7 +52,7 @@ function TablePagination({
         <PaginationItem>
           <PaginationNext
             onClick={() => handlePageChange(++pageIndex)}
-            disabled={pageIndex === 100}
+            disabled={pageIndex === totalPages - 1}
           />
         </PaginationItem>
       </PaginationContent>

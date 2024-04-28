@@ -39,6 +39,12 @@ function PriceTableFilters() {
   }
 
   const handleApplyFilters = () => {
+    if (!filters.limit) {
+      delete filters.limit
+    }
+    if (!filters.minVolume) {
+      delete filters.minVolume
+    }
     setGlobalFilters(filters)
     setOpenFilterModal(false)
   }

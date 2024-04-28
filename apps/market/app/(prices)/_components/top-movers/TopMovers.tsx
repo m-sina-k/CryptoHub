@@ -3,7 +3,10 @@
 import React from "react"
 import TokenCard from "~/app/(prices)/_components/top-movers/TokenCard"
 import CustomTooltip from "~/components/common/CustomTooltip"
-import { coins } from "~/utils/mock"
+import Error from "~/components/common/Error"
+import Loading from "~/components/common/Loading"
+import { useGetCoins } from "~/services/api/common/hooks"
+import shuffleArray from "lodash.shuffle"
 import Slider from "react-slick"
 
 function TopMovers() {
@@ -37,36 +40,44 @@ function TopMovers() {
     ],
   }
 
-  // const {
-  //   data: topGrowth,
-  //   isLoading: topGrowthLoading,
-  //   isError: topGrowthError,
-  // } = useGetCoins({
-  //   timePeriod: "24h",
-  //   limit: 8,
-  //   orderBy: "change",
-  // })
+  const {
+    data: topGrowth,
+    isLoading: topGrowthLoading,
+    isError: topGrowthError,
+  } = useGetCoins({
+    timePeriod: "24h",
+    limit: 8,
+    orderBy: "change",
+  })
 
-  // const {
-  //   data: topReversion,
-  //   isLoading: topReversionLoading,
-  //   isError: topReversionError,
-  // } = useGetCoins({
-  //   timePeriod: "24h",
-  //   limit: 8,
-  //   orderBy: "change",
-  //   orderDirection: "asc",
-  // })
+  const {
+    data: topReversion,
+    isLoading: topReversionLoading,
+    isError: topReversionError,
+  } = useGetCoins({
+    timePeriod: "24h",
+    limit: 8,
+    orderBy: "change",
+    orderDirection: "asc",
+  })
 
-  // if (topGrowthLoading || topReversionLoading) return <p>Loading...</p>
-  // if (topGrowthError || topReversionError) return <p>An error occurred!</p>
-  //
-  // const topMovers = shuffleArray([
-  //   ...topGrowth!.data.data.coins,
-  //   ...topReversion!.data.data.coins,
-  // ])
+  if (topGrowthLoading || topReversionLoading)
+    return (
+      <div className="h-[250px]">
+        <Loading />
+      </div>
+    )
+  if (topGrowthError || topReversionError)
+    return (
+      <div className="h-[250px]">
+        <Error errorMessage="Error while loading top mover coins." />
+      </div>
+    )
 
-  const topMovers = coins
+  const topMovers = shuffleArray([
+    ...topGrowth!.data.data.coins,
+    ...topReversion!.data.data.coins,
+  ])
 
   return (
     <div className="top-movers mt-14 px-5">
