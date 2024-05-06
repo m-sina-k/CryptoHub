@@ -31,7 +31,7 @@ export default function Background({
             <rect
               width="100%"
               height="100%"
-              fill="hsl(var(--background))"
+              fill="hsl(var(--twc-background))"
               mask="url(#dots-mask)"
             />
           </svg>

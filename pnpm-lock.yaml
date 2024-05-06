@@ -42,6 +42,9 @@ importers:
 
   apps/landing:
     dependencies:
+      '@cryptohub/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -66,7 +69,16 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.1)
+      zustand:
+        specifier: ^4.5.2
+        version: 4.5.2(@types/react@18.2.48)(react@18.2.0)
     devDependencies:
+      '@cryptohub/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@cryptohub/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@types/node':
         specifier: ^20
         version: 20.12.8
