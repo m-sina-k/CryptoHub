@@ -11,7 +11,9 @@
     "ui:add": "pnpm --filter @cryptohub/ui ui:add",
     "prepare": "husky",
     "run:market": "pnpm --filter market run dev",
-    "i:market": "pnpm --filter market install"
+    "run:landing": "pnpm --filter landing run dev",
+    "i:market": "pnpm --filter market install",
+    "i:landing": "pnpm --filter landing install"
   },
   "devDependencies": {
     "@cryptohub/eslint-config": "workspace:*",
