@@ -1,8 +1,12 @@
 import React from "react"
+import dynamic from "next/dynamic"
 import Link from "next/link"
 import { Button } from "@ui/index"
-import ThemeSwitcher from "~/app/_components/layout/header/ThemeSwitcher"
 import Logo from "~/app/_components/layout/Logo"
+
+const ThemeSwitcher = dynamic(async () => await import("./ThemeSwitcher"), {
+  ssr: false,
+})
 
 function Header() {
   return (
