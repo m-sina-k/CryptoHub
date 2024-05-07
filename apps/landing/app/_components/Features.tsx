@@ -34,8 +34,8 @@ function Features() {
     <div className="mt-16 flex gap-5">
       {features.map((feature) => (
         <section key={feature.id} className="flex flex-col items-center">
-          {feature.icon}
-          <p className="mt-3 text-center">{feature.desc}</p>
+          <span className="text-twc_primary">{feature.icon}</span>
+          <p className="text-twc_secondary mt-3 text-center">{feature.desc}</p>
         </section>
       ))}
     </div>
