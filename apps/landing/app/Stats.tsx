@@ -20,7 +20,7 @@ const stats = [
 
 function Stats() {
   return (
-    <div className="border-1 border-twc_border mt-8 flex items-center justify-between rounded-lg px-12 py-6 backdrop-blur-lg">
+    <div className="border-1 border-twc_border mt-8 flex items-center justify-between rounded-lg px-12 py-4 backdrop-blur-lg">
       {stats.map((stat) => (
         <section key={stat.id} className="flex flex-1 flex-col items-center">
           <span className="text-twc_primary mb-1 text-2xl font-bold">
