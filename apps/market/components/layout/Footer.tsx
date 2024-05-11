@@ -1,4 +1,3 @@
-import process from "process"
 import React from "react"
 import Link from "next/link"
 import { Button } from "@ui/components"
