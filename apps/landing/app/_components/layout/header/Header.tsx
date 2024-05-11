@@ -19,7 +19,7 @@ const links = [
   {
     id: 1,
     text: "market",
-    url: "crypto-hub-market.vercel.app",
+    url: "https://crypto-hub-market.vercel.app",
   },
   {
     id: 2,
