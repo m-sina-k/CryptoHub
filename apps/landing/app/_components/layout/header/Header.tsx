@@ -1,3 +1,4 @@
+import * as process from "process"
 import React from "react"
 import dynamic from "next/dynamic"
 import Link from "next/link"
@@ -19,7 +20,7 @@ const links = [
   {
     id: 1,
     text: "market",
-    url: "/",
+    url: process.env.NEXT_PUBLIC_MARKET_DOMAIN as string,
   },
   {
     id: 2,
