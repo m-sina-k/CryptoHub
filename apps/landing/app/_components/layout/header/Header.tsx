@@ -9,7 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@ui/index"
 import Logo from "~/app/_components/layout/Logo"
-import { LinkedinIcon, MenuIcon, SendIcon } from "lucide-react"
+import { MenuIcon } from "lucide-react"
 
 const ThemeSwitcher = dynamic(async () => await import("./ThemeSwitcher"), {
   ssr: false,
