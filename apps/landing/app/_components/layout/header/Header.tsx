@@ -1,4 +1,3 @@
-import * as process from "process"
 import React from "react"
 import dynamic from "next/dynamic"
 import Link from "next/link"
