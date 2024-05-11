@@ -8,7 +8,7 @@ import { GithubIcon, HomeIcon, LinkedinIcon, SendIcon } from "lucide-react"
 const links = [
   {
     id: 1,
-    url: process.env.NEXT_PUBLIC_LANDING_DOMAIN as string,
+    url: "crypto-hub-landing.vercel.app",
     icon: <HomeIcon size={16} />,
   },
   {

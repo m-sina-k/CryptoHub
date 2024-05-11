@@ -20,7 +20,7 @@ const links = [
   {
     id: 1,
     text: "market",
-    url: process.env.NEXT_PUBLIC_MARKET_DOMAIN as string,
+    url: "crypto-hub-market.vercel.app",
   },
   {
     id: 2,
