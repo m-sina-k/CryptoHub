@@ -18,18 +18,18 @@ const ThemeSwitcher = dynamic(async () => await import("./ThemeSwitcher"), {
 const links = [
   {
     id: 1,
-    icon: <SendIcon size={16} />,
-    url: "https://t.me/cphub_price_bot",
+    text: "market",
+    url: "/",
   },
   {
     id: 2,
-    url: "https://github.com/m-sina-k/CryptoHub",
-    text: "source code",
+    text: "Telegram bot",
+    url: "https://t.me/cphub_price_bot",
   },
   {
     id: 3,
-    icon: <LinkedinIcon size={16} />,
-    url: "https://www.linkedin.com/in/m-sina-k/",
+    url: "https://github.com/m-sina-k/CryptoHub",
+    text: "source code",
   },
 ]
 

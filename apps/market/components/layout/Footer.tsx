@@ -7,7 +7,7 @@ import { GithubIcon, HomeIcon, LinkedinIcon, SendIcon } from "lucide-react"
 const links = [
   {
     id: 1,
-    url: "/",
+    url: "https://crypto-hublanding-lbyw9elv7-m-sina-ks-projects.vercel.app/",
     icon: <HomeIcon size={16} />,
   },
   {
