@@ -1,3 +1,4 @@
+import process from "process"
 import React from "react"
 import Link from "next/link"
 import { Button } from "@ui/components"
@@ -7,7 +8,7 @@ import { GithubIcon, HomeIcon, LinkedinIcon, SendIcon } from "lucide-react"
 const links = [
   {
     id: 1,
-    url: "https://crypto-hublanding-lbyw9elv7-m-sina-ks-projects.vercel.app/",
+    url: process.env.NEXT_PUBLIC_LANDING_DOMAIN as string,
     icon: <HomeIcon size={16} />,
   },
   {
