@@ -73,6 +73,7 @@ function PopularTokens() {
                   <Image
                     width={24}
                     height={24}
+                    className="size-6"
                     src={token.iconUrl}
                     alt={token.symbol}
                   />

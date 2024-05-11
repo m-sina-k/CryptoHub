@@ -24,7 +24,7 @@ const socialMedias = [
 
 function Footer() {
   return (
-    <footer className="border-1 border-twc_border mb-5 mt-16 flex items-center justify-between rounded-lg px-12 py-6 backdrop-blur-lg">
+    <footer className="border-1 border-twc_border mb-5 mt-10 flex items-center justify-between rounded-lg p-5 backdrop-blur-lg">
       <section>
         <Logo />
       </section>
@@ -35,7 +35,9 @@ function Footer() {
             variant="ghost"
             className="border-1 flex size-8 p-1"
           >
-            <Link href={socialMedia.url}>{socialMedia.icon}</Link>
+            <Link target="_blank" href={socialMedia.url}>
+              {socialMedia.icon}
+            </Link>
           </Button>
         ))}
       </section>

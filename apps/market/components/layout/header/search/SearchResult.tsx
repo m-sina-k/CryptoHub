@@ -11,7 +11,7 @@ interface SearchResultProps {
 
 function SearchResult({ result, handleCloseMenu }: SearchResultProps) {
   return (
-    <div className="bg-twc_background max-w-full overflow-auto py-2 shadow-sm">
+    <div className="bg-twc_accent max-w-full overflow-auto rounded-b-sm py-2 shadow-md">
       {result
         ? result.map((coin) => (
             <Link

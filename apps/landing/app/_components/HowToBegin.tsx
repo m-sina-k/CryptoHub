@@ -1,26 +1,26 @@
 import React from "react"
 import Image from "next/image"
-import { KeyRoundIcon, ShieldQuestion } from "lucide-react"
+import { BitcoinIcon, ShieldQuestion, UserIcon, WalletIcon } from "lucide-react"
 import EarthImage from "public/assets/images/earth.png"
 
 const stepsToBegin = [
   {
     id: 1,
     title: "Register",
-    icon: <KeyRoundIcon />,
-    desc: "Trade Bitcoin, Ethereum, USDT and other altcoins using our crypto trading app.",
+    icon: <UserIcon />,
+    desc: "Start you crypto journey by signing up and completing your profile in CryptoHub.",
   },
   {
     id: 2,
     title: "Connect wallet",
-    icon: <KeyRoundIcon />,
-    desc: "Trade Bitcoin, Ethereum, USDT and other altcoins using our crypto trading app.",
+    icon: <WalletIcon />,
+    desc: "Connect your Trust Wallet, or any other wallet you have to make transactions.",
   },
   {
     id: 3,
     title: "Start trading",
-    icon: <KeyRoundIcon />,
-    desc: "Trade Bitcoin, Ethereum, USDT and other altcoins using our crypto trading app.",
+    icon: <BitcoinIcon />,
+    desc: "Once you have you wallet connected to your profile, you can start trading coins.",
   },
 ]
 
@@ -33,11 +33,15 @@ function HowToBegin() {
         </span>
         <p className="text-twc_primary text-xl font-bold">How To Begin</p>
       </section>
-      <div className="mt-10 flex gap-2">
-        <section className="flex-1">
-          <Image className="max-w-[350px]" src={EarthImage} alt="earth" />
+      <div className="mt-10 grid grid-cols-12 gap-5">
+        <section className="col-span-12 flex flex-1 justify-center md:col-span-5">
+          <Image
+            className="max-w-full object-contain"
+            src={EarthImage}
+            alt="earth"
+          />
         </section>
-        <section className="flex flex-1 flex-col justify-center">
+        <section className="col-span-12 flex flex-1 flex-col justify-center pl-0 md:col-span-7 md:pl-5">
           {stepsToBegin.map((step) => (
             <div key={step.id} className="mb-5">
               <section className="text-twc_primary flex items-center gap-2">

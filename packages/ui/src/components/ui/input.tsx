@@ -11,7 +11,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div
         className={cn(
-          "border-input bg-background flex h-10 items-center rounded-md border px-2 text-sm focus-within:border-blue-500",
+          "border-input bg-twc_accent flex h-10 items-center rounded-md border px-2 text-sm focus-within:border-blue-500",
           className,
         )}
       >
@@ -19,7 +19,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         <input
           type={type}
           className={cn(
-            "border-input bg-background placeholder:text-muted-foreground flex h-10 w-full rounded-md rounded-l-none rounded-r-none border border-x-0 px-3 py-1 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium  focus:border-blue-500 focus:outline-none focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50",
+            "border-input bg-twc_accent placeholder:text-muted-foreground flex h-10 w-full rounded-md rounded-l-none rounded-r-none border border-x-0 px-3 py-1 text-sm file:border-0 file:bg-transparent file:text-sm file:font-medium  focus:border-blue-500 focus:outline-none focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50",
             className,
           )}
           ref={ref}

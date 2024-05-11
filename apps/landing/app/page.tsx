@@ -9,7 +9,7 @@ import Stats from "~/app/Stats"
 export default function Home() {
   return (
     <main>
-      <div className="container">
+      <div className="container px-5">
         <Header />
         <GetStarted />
         <Features />

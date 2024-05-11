@@ -1,5 +1,5 @@
 body {
-  @apply bg-twc_background
+  @apply bg-twc_background transition-colors duration-200
 }
 
 input::-webkit-outer-spin-button,

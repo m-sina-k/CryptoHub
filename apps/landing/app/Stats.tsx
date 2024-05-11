@@ -8,8 +8,8 @@ const stats = [
   },
   {
     id: 2,
-    title: "Exchanges",
-    count: "+300",
+    title: "Fiat money suppoerted",
+    count: "+20",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const stats = [
 
 function Stats() {
   return (
-    <div className="border-1 border-twc_border mt-8 flex items-center justify-between rounded-lg px-12 py-4 backdrop-blur-lg">
+    <div className="border-1 border-twc_border mt-8 grid grid-cols-1 gap-5 rounded-lg px-12 py-4 backdrop-blur-lg sm:grid-cols-3">
       {stats.map((stat) => (
         <section key={stat.id} className="flex flex-1 flex-col items-center">
           <span className="text-twc_primary mb-1 text-2xl font-bold">

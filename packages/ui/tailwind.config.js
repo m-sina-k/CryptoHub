@@ -117,7 +117,7 @@ const config = {
           border: "#C9CFDD",
           accent: "#ffffff",
           table_row__background: "#ffffff",
-          table_row__background_hover: "#ffffff",
+          table_row__background_hover: "#F5F6F9",
           badge_background: "#eaeef4",
         },
         dark: {

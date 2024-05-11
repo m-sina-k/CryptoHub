@@ -44,7 +44,7 @@ function ThemeSwitcher() {
             key={option.name}
             className={cn(
               "capitalize",
-              theme.name === option.name && "text-brand hover:text-brand",
+              theme.name === option.name && "text-brand hover:!text-brand",
             )}
             onClick={() => setTheme({ name: option.name, value: option.value })}
           >

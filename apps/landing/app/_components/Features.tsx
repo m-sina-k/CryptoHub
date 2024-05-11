@@ -19,7 +19,7 @@ const features = [
   },
   {
     id: 3,
-    desc: "Trusted by over 100 million users worldwide",
+    desc: "Trusted by over 100 thousand users worldwide",
     icon: <UsersRoundIcon />,
   },
   {
@@ -31,7 +31,7 @@ const features = [
 
 function Features() {
   return (
-    <div className="mt-16 flex gap-5">
+    <div className="mt-16 grid grid-cols-1 gap-5 p-5 sm:grid-cols-2 md:grid-cols-4">
       {features.map((feature) => (
         <section key={feature.id} className="flex flex-col items-center">
           <span className="text-twc_primary">{feature.icon}</span>
